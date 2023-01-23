@@ -13,7 +13,7 @@ Config-files and settings for my Home Assistant and smarthome. So that I easily 
 - USB to SATA
 - SSD Drive
 
-## Installation
+## Installation of Home Assistant OS to SSD
 1. Download and install Rasperry Pi imager: https://www.raspberrypi.com/software/
 2. Run Pi Imager, select OS, Misc utility images, Bootloader, USB Boot. Select SD-card and Write
 3. Put SD-card in RPi4, power up RPi, wait 30 seconds, remove power.
