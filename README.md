@@ -21,3 +21,9 @@ Config-files and settings for my Home Assistant and smarthome. So that I easily 
 5. Select OS, Other specific-purpose OS, Home assistants and home automation, Home Assistant, Home Assistant OS 9.4 (RPi 4/400), select SSD, then the gear/settings-icon, configure Wifi-settings and Write.
 6. Connect USB to sata to RPi USB 3.0-port, power up RPi.
 7. Go grab a coffee, and the connect to homeassistant.local:8123 and restore backup.
+
+## Add-ons
+- HACS
+- Auto Backup (from HACS)
+- Samba share - Folder with backup-files from Auto backup mounted on computer which syncs to Jottacloud
+- 
