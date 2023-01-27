@@ -26,4 +26,5 @@ Config-files and settings for my Home Assistant and smarthome. So that I easily 
 - HACS
 - Auto Backup (from HACS)
 - Samba share - Folder with backup-files from Auto backup mounted on computer which syncs to Jottacloud
-- 
+- Futurehome2mqtt
+
