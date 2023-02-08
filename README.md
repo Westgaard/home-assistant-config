@@ -31,7 +31,7 @@ Config-files and settings for my Home Assistant and smarthome. So that I easily 
 - [Zigbee2MQTT](https://www.zigbee2mqtt.io/)
   - Bridged to Futurehome, se [Mosquitto.conf](https://github.com/Westgaard/home-assistant-config/blob/main/share/mosquitto/mosquitto.conf)
 - [Leaf2mqtt](https://github.com/yp87/leaf2mqtt) - To get battery-status from Nissan Leaf
-- [Mosquitto broker](https://github.com/home-assistant/addons/tree/master/mosquitto
+- [Mosquitto broker](https://github.com/home-assistant/addons/tree/master/mosquitto)
   - Bridge to Futurehome, broker for Zigbee2MQTT
 
 ## Configuration
