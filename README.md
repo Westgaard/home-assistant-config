@@ -27,7 +27,12 @@ Config-files and settings for my Home Assistant and smarthome. So that I easily 
 - [Auto Backup](https://github.com/jcwillox/hass-auto-backup) from HACS
 - Samba share - Folder with backup-files from Auto backup mounted on computer which syncs to Jottacloud
 - [Futurehome2mqtt](https://github.com/runelangseid/hassio-futurehome2mqtt) - Expose (some of) the devices in Futurehome to HA
+  - Connected to Futurehome-hub
+- [Zigbee2MQTT](https://www.zigbee2mqtt.io/)
+  - Bridged to Futurehome, se [Mosquitto.conf]((https://github.com/Westgaard/home-assistant-config/blob/main/share/mosquitto/mosquitto.conf)
 - [Leaf2mqtt](https://github.com/yp87/leaf2mqtt) - To get battery-status from Nissan Leaf
+- [Mosquitto broker](https://github.com/home-assistant/addons/tree/master/mosquitto
+  - Bridge to Futurehome, broker for Zigbee2MQTT
 
 ## Configuration
 - [Configuration.yaml](https://github.com/Westgaard/home-assistant-config/blob/main/config/configuration.yaml)
