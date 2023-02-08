@@ -1,0 +1,127 @@
+- id: '1674830484455'
+  alias: Slå på taklys carport ved bevegelse
+  description: ''
+  trigger:
+  - type: motion
+    platform: device
+    device_id: ac5b534538069ef023e969df7cee8857
+    entity_id: binary_sensor.bevegelse_carport_motion
+    domain: binary_sensor
+  condition:
+  - condition: time
+    after: 06:00:00
+    before: '23:30:00'
+    weekday:
+    - sun
+    - sat
+    - fri
+    - thu
+    - wed
+    - tue
+    - mon
+  - condition: numeric_state
+    entity_id: sensor.bevegelse_carport_illuminance
+    attribute: light_level
+    below: 1000
+  action:
+  - service: light.turn_on
+    data: {}
+    target:
+      entity_id: light.fh_32_out_bin_switch
+  mode: single
+- id: '1674830728064'
+  alias: Slå av taklys carport når ikke bevegelse
+  description: ''
+  trigger:
+  - type: no_motion
+    platform: device
+    device_id: ac5b534538069ef023e969df7cee8857
+    entity_id: binary_sensor.bevegelse_carport_motion
+    domain: binary_sensor
+    for:
+      hours: 0
+      minutes: 5
+      seconds: 0
+  condition: []
+  action:
+  - service: light.turn_off
+    data: {}
+    target:
+      entity_id: light.fh_32_out_bin_switch
+  mode: single
+- id: '1675090922181'
+  alias: Slå av loddebolt etter 1 time
+  description: ''
+  trigger:
+  - platform: device
+    type: turned_on
+    device_id: 0bac9ed7bcfe4369fb03e636ed2ebb26
+    entity_id: switch.loddebolt
+    domain: switch
+  condition: []
+  action:
+  - delay:
+      hours: 1
+      minutes: 0
+      seconds: 0
+      milliseconds: 0
+  - type: turn_off
+    device_id: 0bac9ed7bcfe4369fb03e636ed2ebb26
+    entity_id: switch.loddebolt
+    domain: switch
+  mode: single
+- id: '1675147320849'
+  alias: Varsel hvis Leaf lite strøm og ikke tilkoblet
+  description: ''
+  trigger:
+  - platform: time
+    at: '21:45:00'
+    enabled: true
+  condition:
+  - condition: and
+    conditions:
+    - condition: numeric_state
+      entity_id: sensor.leaf_battery_level
+      below: 50
+    - condition: state
+      entity_id: sensor.leaf_battery_connected
+      state: 'false'
+  action:
+  - service: notify.mobile_app_mobiltelefon
+    data:
+      message: "Leaf lite strøm og ikke tilkoblet. Koble til strøm i kveld så er den
+        klar til i morgen \U0001F642"
+      title: Leaf under 50% strøm
+  - service: notify.tibber
+    data:
+      message: "Leaf lite strøm og ikke tilkoblet. Koble til i kveld så er den klar
+        til i morgen \U0001F642 "
+      title: Leaf under 50%
+  mode: single
+- id: '1675717405037'
+  alias: Automatic Backups
+  description: ''
+  use_blueprint:
+    path: jcwillox/automatic_backups.yaml
+- id: '1675762172443'
+  alias: Slå på stuelys ved solnedgang
+  description: Hvis noen er hjemme
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 0
+  condition:
+  - condition: or
+    conditions:
+    - condition: state
+      entity_id: person.me
+      state: home
+    - condition: state
+      entity_id: device_tracker.other.person
+      state: home
+  action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.stuelys
+    metadata: {}
+  mode: single
