@@ -30,5 +30,5 @@ Config-files and settings for my Home Assistant and smarthome. So that I easily 
 - [Leaf2mqtt](https://github.com/yp87/leaf2mqtt) - To get battery-status from Nissan Leaf
 
 ## Configuration
-[Configuration.yaml](https://github.com/Westgaard/home-assistant-config/blob/main/config/configuration.yaml)
-[Automations.yaml](https://github.com/Westgaard/home-assistant-config/blob/main/config/automations.yaml)
+- [Configuration.yaml](https://github.com/Westgaard/home-assistant-config/blob/main/config/configuration.yaml)
+- [Automations.yaml](https://github.com/Westgaard/home-assistant-config/blob/main/config/automations.yaml)
